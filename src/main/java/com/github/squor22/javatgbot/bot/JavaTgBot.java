@@ -25,33 +25,18 @@ public class JavaTgBot extends TelegramLongPollingBot{
     @Override
     public void onUpdateReceived(Update update) {
         if(update.hasMessage() && update.getMessage().hasText()) {
-            String messageText = update.getMessage().getText();
-            Long chatId = update.getMessage().getChatId();
+            String message = update.getMessage().getText().trim();
+            String chatId = update.getMessage().getChatId().toString();
 
-            switch (messageText) {
-                case "/start":
-                    startCommandReceived(chatId, update.getMessage().getChat().getFirstName());
-                case "homie":
-                    sendMessage(chatId, "wassup");
-                default:
+            SendMessage sm = new SendMessage();
+            sm.setChatId(chatId);
+            sm.setText(message);
+
+            try {
+                execute(sm);
+            } catch (TelegramApiException e) {
+                e.printStackTrace();
             }
-        }
-    }
-
-    private void startCommandReceived(Long chatId, String firstName) {
-        String message = "Hello, " + firstName + "!";
-        sendMessage(chatId, message);
-    }
-
-    private void sendMessage(Long chatId, String textToSend) {
-        SendMessage message = new SendMessage();
-        message.setChatId(String.valueOf(chatId));
-        message.setText(textToSend);
-
-        try {
-            execute(message);
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
         }
     }
 }

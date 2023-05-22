@@ -1,6 +1,5 @@
-package com.github.squor22.javatgbot.bot.config;
+package com.github.squor22.javatgbot.bot;
 
-import com.github.squor22.javatgbot.bot.JavaTgBot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
