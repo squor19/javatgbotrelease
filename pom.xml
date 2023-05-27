@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.github.squor22</groupId>
 	<artifactId>javatgbot</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.3.0-SNAPSHOT</version>
 	<name>Java TelegramBot</name>
 	<description>TelegramBot using Sping Boot</description>
 	<properties>
