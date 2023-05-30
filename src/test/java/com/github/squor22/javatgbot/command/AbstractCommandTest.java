@@ -4,6 +4,9 @@ import com.github.squor22.javatgbot.bot.JavaTgBot;
 import com.github.squor22.javatgbot.bot.command.Command;
 import com.github.squor22.javatgbot.bot.service.SendBotMessageService;
 import com.github.squor22.javatgbot.bot.service.SendBotMessageServiceImpl;
+import com.github.squor22.javatgbot.repository.TelegramUserRepository;
+import com.github.squor22.javatgbot.repository.service.TelegramUserService;
+import com.github.squor22.javatgbot.repository.service.TelegramUserServiceImpl;
 import org.mockito.Mockito;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
@@ -14,7 +17,8 @@ abstract class AbstractCommandTest {
 
     protected JavaTgBot javaTgBot = Mockito.mock(JavaTgBot.class);
     protected SendBotMessageService sendBotMessageService = new SendBotMessageServiceImpl(javaTgBot);
-
+    protected TelegramUserRepository telegramUserRepository = Mockito.mock(TelegramUserRepository.class);
+    protected TelegramUserService telegramUserService = new TelegramUserServiceImpl(telegramUserRepository);
     abstract String getCommandName();
 
     abstract String getCommandMessage();

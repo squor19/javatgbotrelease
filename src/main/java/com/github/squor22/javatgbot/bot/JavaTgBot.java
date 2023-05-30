@@ -3,6 +3,7 @@ package com.github.squor22.javatgbot.bot;
 import com.github.squor22.javatgbot.bot.command.CommandContainer;
 import com.github.squor22.javatgbot.bot.config.BotConfig;
 import com.github.squor22.javatgbot.bot.service.SendBotMessageServiceImpl;
+import com.github.squor22.javatgbot.repository.service.TelegramUserService;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -18,10 +19,10 @@ public class JavaTgBot extends TelegramLongPollingBot{
 
     private final CommandContainer commandContainer;
 
-    public JavaTgBot(BotConfig config) {
+    public JavaTgBot(BotConfig config, TelegramUserService telegramUserService) {
         super(config.getBotToken());
         this.config = config;
-        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this));
+        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this), telegramUserService);
     }
 
     @Override
