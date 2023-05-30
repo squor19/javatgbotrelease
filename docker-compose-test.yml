@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  javatgb-db:
+    image: mysql
+    restart: always
+    container_name: dev-javatgb-db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: "dev_jrtb_db"
+      MYSQL_ROOT_PASSWORD: root
