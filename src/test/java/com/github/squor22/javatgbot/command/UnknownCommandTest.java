@@ -1,10 +1,10 @@
 package com.github.squor22.javatgbot.command;
 
 import com.github.squor22.javatgbot.bot.command.Command;
-import com.github.squor22.javatgbot.bot.command.UnknownCommand;
+import com.github.squor22.javatgbot.bot.command.commands.UnknownCommand;
 import org.junit.jupiter.api.DisplayName;
 
-import static com.github.squor22.javatgbot.bot.command.UnknownCommand.UNKNOWN_MESSAGE;
+import static com.github.squor22.javatgbot.bot.command.commands.UnknownCommand.UNKNOWN_MESSAGE;
 
 @DisplayName("Unit-level testing for UnknownCommand")
 public class UnknownCommandTest  extends AbstractCommandTest {

@@ -1,10 +1,11 @@
-package com.github.squor22.javatgbot.bot.command;
+package com.github.squor22.javatgbot.bot.command.commands;
 
+import com.github.squor22.javatgbot.bot.command.Command;
 import com.github.squor22.javatgbot.bot.service.SendBotMessageService;
 import com.github.squor22.javatgbot.repository.service.TelegramUserService;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
-public class StopCommand implements Command{
+public class StopCommand implements Command {
 
     private final SendBotMessageService sendBotMessageService;
     private final TelegramUserService telegramUserService;

@@ -3,8 +3,10 @@ package com.github.squor22.javatgbot.command;
 import com.github.squor22.javatgbot.bot.command.Command;
 import com.github.squor22.javatgbot.bot.command.CommandContainer;
 import com.github.squor22.javatgbot.bot.command.CommandName;
-import com.github.squor22.javatgbot.bot.command.UnknownCommand;
+import com.github.squor22.javatgbot.bot.command.commands.UnknownCommand;
 import com.github.squor22.javatgbot.bot.service.SendBotMessageService;
+import com.github.squor22.javatgbot.client.JavaTGBotClient;
+import com.github.squor22.javatgbot.repository.service.GroupSubService;
 import com.github.squor22.javatgbot.repository.service.TelegramUserService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,7 +25,9 @@ public class CommandContainerTest {
     public void init() {
         SendBotMessageService sendBotMessageService = Mockito.mock(SendBotMessageService.class);
         TelegramUserService telegramUserService = Mockito.mock(TelegramUserService.class);
-        commandContainer = new CommandContainer(sendBotMessageService, telegramUserService);
+        JavaTGBotClient javaTGBotClient = Mockito.mock(JavaTGBotClient.class);
+        GroupSubService groupSubService = Mockito.mock(GroupSubService.class);
+        commandContainer = new CommandContainer(sendBotMessageService, telegramUserService, javaTGBotClient, groupSubService);
     }
 
     @Test

@@ -1,5 +1,6 @@
-package com.github.squor22.javatgbot.bot.command;
+package com.github.squor22.javatgbot.bot.command.commands;
 
+import com.github.squor22.javatgbot.bot.command.Command;
 import com.github.squor22.javatgbot.bot.service.SendBotMessageService;
 import com.github.squor22.javatgbot.repository.entity.TelegramUser;
 import com.github.squor22.javatgbot.repository.service.TelegramUserService;

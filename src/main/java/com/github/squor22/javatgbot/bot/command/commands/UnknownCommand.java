@@ -1,5 +1,6 @@
-package com.github.squor22.javatgbot.bot.command;
+package com.github.squor22.javatgbot.bot.command.commands;
 
+import com.github.squor22.javatgbot.bot.command.Command;
 import com.github.squor22.javatgbot.bot.service.SendBotMessageService;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
