@@ -1,10 +1,8 @@
-package com.github.squor22.javatgbot.repository;
+package com.github.squor22.javatgbot.db.repository;
 
-import com.github.squor22.javatgbot.repository.entity.GroupSub;
+import com.github.squor22.javatgbot.db.entity.GroupSub;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 /**
  * {@link Repository} for {@link GroupSub} entity.

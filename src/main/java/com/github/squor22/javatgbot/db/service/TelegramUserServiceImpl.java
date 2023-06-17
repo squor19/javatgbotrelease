@@ -1,8 +1,8 @@
-package com.github.squor22.javatgbot.repository.service;
+package com.github.squor22.javatgbot.db.service;
 
 
-import com.github.squor22.javatgbot.repository.entity.TelegramUser;
-import com.github.squor22.javatgbot.repository.TelegramUserRepository;
+import com.github.squor22.javatgbot.db.entity.TelegramUser;
+import com.github.squor22.javatgbot.db.repository.TelegramUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,12 +25,17 @@ public class TelegramUserServiceImpl implements TelegramUserService {
     }
 
     @Override
-    public List<TelegramUser> retrieveAllActiveUsers() {
-        return telegramUserRepository.findAllByActiveTrue();
+    public Optional<TelegramUser> findByChatId(String chatId) {
+        return telegramUserRepository.findById(chatId);
     }
 
     @Override
-    public Optional<TelegramUser> findByChatId(String chatId) {
-        return telegramUserRepository.findById(chatId);
+    public List<TelegramUser> findAllInActiveUsers() {
+        return telegramUserRepository.findAllByActiveFalse();
+    }
+
+    @Override
+    public List<TelegramUser> findAllActiveUsers() {
+        return telegramUserRepository.findAllByActiveTrue();
     }
 }

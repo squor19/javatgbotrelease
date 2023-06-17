@@ -5,8 +5,8 @@ import com.github.squor22.javatgbot.bot.service.SendBotMessageService;
 import com.github.squor22.javatgbot.client.JavaTGBotClient;
 import com.github.squor22.javatgbot.client.dto.GroupDiscussionInfo;
 import com.github.squor22.javatgbot.client.dto.GroupRequestArgs;
-import com.github.squor22.javatgbot.repository.entity.GroupSub;
-import com.github.squor22.javatgbot.repository.service.GroupSubService;
+import com.github.squor22.javatgbot.db.entity.GroupSub;
+import com.github.squor22.javatgbot.db.service.GroupSubService;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 import java.util.stream.Collectors;

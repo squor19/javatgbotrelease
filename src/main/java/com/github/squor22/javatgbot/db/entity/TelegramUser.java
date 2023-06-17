@@ -1,4 +1,4 @@
-package com.github.squor22.javatgbot.repository.entity;
+package com.github.squor22.javatgbot.db.entity;
 
 import lombok.Data;
 

@@ -1,10 +1,10 @@
-package com.github.squor22.javatgbot.repository.service;
+package com.github.squor22.javatgbot.db.service;
 
 import com.github.squor22.javatgbot.bot.service.SendBotMessageService;
 import com.github.squor22.javatgbot.client.JavaTGBotClient;
 import com.github.squor22.javatgbot.client.dto.PostInfo;
-import com.github.squor22.javatgbot.repository.entity.GroupSub;
-import com.github.squor22.javatgbot.repository.entity.TelegramUser;
+import com.github.squor22.javatgbot.db.entity.GroupSub;
+import com.github.squor22.javatgbot.db.entity.TelegramUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

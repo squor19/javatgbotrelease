@@ -2,8 +2,8 @@ package com.github.squor22.javatgbot.bot.command.commands;
 
 import com.github.squor22.javatgbot.bot.command.Command;
 import com.github.squor22.javatgbot.bot.service.SendBotMessageService;
-import com.github.squor22.javatgbot.repository.entity.TelegramUser;
-import com.github.squor22.javatgbot.repository.service.TelegramUserService;
+import com.github.squor22.javatgbot.db.entity.TelegramUser;
+import com.github.squor22.javatgbot.db.service.TelegramUserService;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 public class StartCommand implements Command {

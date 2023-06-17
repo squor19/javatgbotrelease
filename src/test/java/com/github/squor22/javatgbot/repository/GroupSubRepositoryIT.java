@@ -1,7 +1,8 @@
 package com.github.squor22.javatgbot.repository;
 
-import com.github.squor22.javatgbot.repository.entity.GroupSub;
-import com.github.squor22.javatgbot.repository.entity.TelegramUser;
+import com.github.squor22.javatgbot.db.entity.GroupSub;
+import com.github.squor22.javatgbot.db.entity.TelegramUser;
+import com.github.squor22.javatgbot.db.repository.GroupSubRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

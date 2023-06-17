@@ -1,6 +1,6 @@
 package com.github.squor22.javatgbot.job;
 
-import com.github.squor22.javatgbot.repository.service.FindNewArticleService;
+import com.github.squor22.javatgbot.db.service.FindNewArticleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;

@@ -1,12 +1,12 @@
 package com.github.squor22.javatgbot.service;
 
 import com.github.squor22.javatgbot.client.dto.GroupDiscussionInfo;
-import com.github.squor22.javatgbot.repository.GroupSubRepository;
-import com.github.squor22.javatgbot.repository.entity.GroupSub;
-import com.github.squor22.javatgbot.repository.entity.TelegramUser;
-import com.github.squor22.javatgbot.repository.service.GroupSubService;
-import com.github.squor22.javatgbot.repository.service.GroupSubServiceImpl;
-import com.github.squor22.javatgbot.repository.service.TelegramUserService;
+import com.github.squor22.javatgbot.db.repository.GroupSubRepository;
+import com.github.squor22.javatgbot.db.entity.GroupSub;
+import com.github.squor22.javatgbot.db.entity.TelegramUser;
+import com.github.squor22.javatgbot.db.service.GroupSubService;
+import com.github.squor22.javatgbot.db.service.GroupSubServiceImpl;
+import com.github.squor22.javatgbot.db.service.TelegramUserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

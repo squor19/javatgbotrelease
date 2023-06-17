@@ -2,9 +2,9 @@ package com.github.squor22.javatgbot.command;
 
 import com.github.squor22.javatgbot.bot.command.commands.ListGroupSubCommand;
 import com.github.squor22.javatgbot.bot.service.SendBotMessageService;
-import com.github.squor22.javatgbot.repository.entity.GroupSub;
-import com.github.squor22.javatgbot.repository.entity.TelegramUser;
-import com.github.squor22.javatgbot.repository.service.TelegramUserService;
+import com.github.squor22.javatgbot.db.entity.GroupSub;
+import com.github.squor22.javatgbot.db.entity.TelegramUser;
+import com.github.squor22.javatgbot.db.service.TelegramUserService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

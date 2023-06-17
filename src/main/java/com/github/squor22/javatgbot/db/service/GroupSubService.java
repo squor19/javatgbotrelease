@@ -1,7 +1,7 @@
-package com.github.squor22.javatgbot.repository.service;
+package com.github.squor22.javatgbot.db.service;
 
 import com.github.squor22.javatgbot.client.dto.GroupDiscussionInfo;
-import com.github.squor22.javatgbot.repository.entity.GroupSub;
+import com.github.squor22.javatgbot.db.entity.GroupSub;
 
 import java.util.List;
 import java.util.Optional;

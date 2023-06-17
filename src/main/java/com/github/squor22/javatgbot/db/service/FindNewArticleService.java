@@ -1,4 +1,4 @@
-package com.github.squor22.javatgbot.repository.service;
+package com.github.squor22.javatgbot.db.service;
 
 public interface FindNewArticleService {
 

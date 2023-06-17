@@ -1,7 +1,6 @@
 package com.github.squor22.javatgbot.client;
 
 import com.github.squor22.javatgbot.client.dto.*;
-import com.github.squor22.javatgbot.repository.entity.GroupSub;
 
 import java.util.List;
 

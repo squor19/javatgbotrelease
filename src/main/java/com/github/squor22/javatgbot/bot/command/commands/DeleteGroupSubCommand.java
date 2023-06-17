@@ -1,11 +1,11 @@
 package com.github.squor22.javatgbot.bot.command.commands;
 
 import com.github.squor22.javatgbot.bot.command.Command;
-import com.github.squor22.javatgbot.repository.service.GroupSubService;
+import com.github.squor22.javatgbot.db.service.GroupSubService;
 import com.github.squor22.javatgbot.bot.service.SendBotMessageService;
-import com.github.squor22.javatgbot.repository.entity.GroupSub;
-import com.github.squor22.javatgbot.repository.entity.TelegramUser;
-import com.github.squor22.javatgbot.repository.service.TelegramUserService;
+import com.github.squor22.javatgbot.db.entity.GroupSub;
+import com.github.squor22.javatgbot.db.entity.TelegramUser;
+import com.github.squor22.javatgbot.db.service.TelegramUserService;
 import org.springframework.util.CollectionUtils;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
@@ -19,7 +19,6 @@ import static com.github.squor22.javatgbot.bot.command.CommandUtils.getChatId;
 import static com.github.squor22.javatgbot.bot.command.CommandUtils.getMessage;
 import static org.apache.commons.lang3.StringUtils.SPACE;
 import static org.apache.commons.lang3.StringUtils.isNumeric;
-import static org.apache.logging.log4j.message.ParameterizedMessage.format;
 
 public class DeleteGroupSubCommand implements Command {
 
