@@ -1,6 +1,6 @@
 package com.github.squor22.javatgbot.job;
 
-import com.github.squor22.javatgbot.db.service.FindNewArticleService;
+import com.github.squor22.javatgbot.db.service.FindNewPostsService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -14,17 +14,17 @@ import java.time.ZoneOffset;
  */
 @Slf4j
 @Component
-public class FindNewArticlesJob {
+public class FindNewPostsJob {
 
-    private final FindNewArticleService findNewArticleService;
+    private final FindNewPostsService findNewArticleService;
 
     @Autowired
-    public FindNewArticlesJob(FindNewArticleService findNewArticleService) {
+    public FindNewPostsJob(FindNewPostsService findNewArticleService) {
         this.findNewArticleService = findNewArticleService;
     }
 
-    @Scheduled(fixedRateString = "${bot.recountNewArticleFixedRate}")
-    public void findNewArticles() {
+    @Scheduled(fixedRateString = "${bot.recountNewPostsFixedRate}")
+    public void findNewPosts() {
         LocalDateTime start = LocalDateTime.now();
 
         log.info("Find new article job started.");
