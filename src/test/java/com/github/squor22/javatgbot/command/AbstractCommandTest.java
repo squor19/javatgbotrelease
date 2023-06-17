@@ -2,11 +2,12 @@ package com.github.squor22.javatgbot.command;
 
 import com.github.squor22.javatgbot.bot.JavaTgBot;
 import com.github.squor22.javatgbot.bot.command.Command;
+import com.github.squor22.javatgbot.bot.command.CommandName;
 import com.github.squor22.javatgbot.bot.service.SendBotMessageService;
 import com.github.squor22.javatgbot.bot.service.SendBotMessageServiceImpl;
-import com.github.squor22.javatgbot.repository.TelegramUserRepository;
-import com.github.squor22.javatgbot.repository.service.TelegramUserService;
-import com.github.squor22.javatgbot.repository.service.TelegramUserServiceImpl;
+import com.github.squor22.javatgbot.db.repository.TelegramUserRepository;
+import com.github.squor22.javatgbot.db.service.TelegramUserService;
+import com.github.squor22.javatgbot.db.service.TelegramUserServiceImpl;
 import org.mockito.Mockito;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
@@ -47,5 +48,14 @@ abstract class AbstractCommandTest {
 
         //then
         Mockito.verify(javaTgBot).execute(sendMessage);
+    }
+
+    public static Update prepareUpdate(Long chatId, String commandName) {
+        Update update = new Update();
+        Message message = Mockito.mock(Message.class);
+        Mockito.when(message.getChatId()).thenReturn(chatId);
+        Mockito.when(message.getText()).thenReturn(commandName);
+        update.setMessage(message);
+        return update;
     }
 }

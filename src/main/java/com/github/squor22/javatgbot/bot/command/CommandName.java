@@ -7,7 +7,11 @@ public enum CommandName {
     HELP("/help"),
     TEST("/test"),
     NO("/no"),
-    STAT("/stat");
+    STAT("/stat"),
+    ADD_GROUP_SUB("/addgroupsub"),
+    LIST_GROUP_SUB("/listgroupsub"),
+    DELETE_GROUP_SUB("/deletegroupsub"),
+    ADMIN_HELP("/adminhelp");
 
     private final String commandName;
 
