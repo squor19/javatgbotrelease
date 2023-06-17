@@ -10,8 +10,8 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 
 public class AdminHelpCommand implements Command {
 
-    public static final String ADMIN_HELP_MESSAGE = format("✨<b>Доступные команды админа</b>✨\n\n"
-                    + "<b>Получить статистику</b>\n"
+    public static final String ADMIN_HELP_MESSAGE = format("✨<b>Доступні команди адміна</b>✨\n\n"
+                    + "<b>Отримати статистику</b>\n"
                     + "%s - статистика бота\n",
             STAT.getCommandName());
 
@@ -23,6 +23,6 @@ public class AdminHelpCommand implements Command {
 
     @Override
     public void execute(Update update) {
-        sendBotMessageService.sendMessage(update.getMessage().getChatId().toString(), ADMIN_HELP_MESSAGE);
+        sendBotMessageService.sendMessage(update.getMessage().getChatId(), ADMIN_HELP_MESSAGE);
     }
 }

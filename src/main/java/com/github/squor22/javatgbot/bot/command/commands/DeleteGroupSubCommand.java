@@ -36,11 +36,11 @@ public class DeleteGroupSubCommand implements Command {
     @Override
     public void execute(Update update) {
         if (getMessage(update).equalsIgnoreCase(DELETE_GROUP_SUB.getCommandName())) {
-            sendGroupIdList(String.valueOf(getChatId(update)));
+            sendGroupIdList(getChatId(update));
             return;
         }
         String groupId = getMessage(update).split(SPACE)[1];
-        String chatId = String.valueOf(getChatId(update));
+        Long chatId = getChatId(update);
         if (isNumeric(groupId)) {
             Optional<GroupSub> optionalGroupSub = groupSubService.findById(Integer.valueOf(groupId));
             if (optionalGroupSub.isPresent()) {
@@ -48,28 +48,28 @@ public class DeleteGroupSubCommand implements Command {
                 TelegramUser telegramUser = telegramUserService.findByChatId(chatId).orElseThrow(NotFoundException::new);
                 groupSub.getUsers().remove(telegramUser);
                 groupSubService.save(groupSub);
-                sendBotMessageService.sendMessage(chatId, String.format("Удалил подписку на группу: %s", groupSub.getTitle()));
+                sendBotMessageService.sendMessage(chatId, String.format("Видалив підписку на групу: %s", groupSub.getTitle()));
             } else {
-                sendBotMessageService.sendMessage(chatId, "Не нашел такой группы =/");
+                sendBotMessageService.sendMessage(chatId, "Не знайшов такої групи =/");
             }
         } else {
-            sendBotMessageService.sendMessage(chatId, "неправильный формат ID группы.\n " +
-                    "ID должно быть целым положительным числом");
+            sendBotMessageService.sendMessage(chatId, "неправильний формат групи.\n " +
+                    "ID повинне бути цілим додатнім числом");
         }
     }
 
-    private void sendGroupIdList(String chatId) {
+    private void sendGroupIdList(Long chatId) {
         String message;
         List<GroupSub> groupSubs = telegramUserService.findByChatId(chatId)
                 .orElseThrow(NotFoundException::new)
                 .getGroupSubs();
         if (CollectionUtils.isEmpty(groupSubs)) {
-            message = "Пока нет подписок на группы. Чтобы добавить подписку напиши /addGroupSub";
+            message = "Поки немає підписок на групи. Щоб додати підписку напиши /addGroupSub";
         } else {
-            message = "Чтобы удалить подписку на группу - передай комадну вместе с ID группы. \n" +
-                    "Например: /deleteGroupSub 16 \n\n" +
-                    "я подготовил список всех групп, на которые ты подписан) \n\n" +
-                    "имя группы - ID группы \n\n" +
+            message = "Щоб видалити підписку на групу - впиши команду разом з ID групи. \n" +
+                    "Наприклад: /deleteGroupSub 16 \n\n" +
+                    "Я підготував список всіх груп на котрі ти підписаний ) \n\n" +
+                    "ім'я групи - ID групи \n\n" +
                     "%s";
 
         }

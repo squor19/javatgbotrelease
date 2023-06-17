@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class FindNewArticleServiceImpl implements FindNewPostsService {
+public class FindNewPostsServiceImpl implements FindNewPostsService {
 
     public static final String JAVARUSH_WEB_POST_FORMAT = "https://javarush.com/groups/posts/%s";
 
@@ -22,9 +22,9 @@ public class FindNewArticleServiceImpl implements FindNewPostsService {
     private final SendBotMessageService sendMessageService;
 
     @Autowired
-    public FindNewArticleServiceImpl(GroupSubService groupSubService,
-                                     JavaTGBotClient javaRushPostClient,
-                                     SendBotMessageService sendMessageService) {
+    public FindNewPostsServiceImpl(GroupSubService groupSubService,
+                                   JavaTGBotClient javaRushPostClient,
+                                   SendBotMessageService sendMessageService) {
         this.groupSubService = groupSubService;
         this.javaTGBotClient = javaRushPostClient;
         this.sendMessageService = sendMessageService;
@@ -44,15 +44,15 @@ public class FindNewArticleServiceImpl implements FindNewPostsService {
     private void notifySubscribersAboutNewArticles(GroupSub gSub, List<PostInfo> newPosts) {
         Collections.reverse(newPosts);
         List<String> messagesWithNewPosts = newPosts.stream()
-                .map(post -> String.format("✨Вышла новая статья <b>%s</b> в группе <b>%s</b>.✨\n\n" +
-                                "<b>Описание:</b> %s\n\n" +
-                                "<b>Ссылка:</b> %s\n",
+                .map(post -> String.format("✨Вийшла нова стаття <b>%s</b> в групі <b>%s</b>.✨\n\n" +
+                                "<b>Опис:</b> %s\n\n" +
+                                "<b>Лінк:</b> %s\n",
                         post.getTitle(), gSub.getTitle(), post.getDescription(), getPostUrl(post.getKey())))
                 .collect(Collectors.toList());
 
         gSub.getUsers().stream()
                 .filter(TelegramUser::isActive)
-                .forEach(it -> sendMessageService.sendMessage(it.getChatId().toString(), messagesWithNewPosts));
+                .forEach(it -> sendMessageService.sendMessage(it.getChatId(), messagesWithNewPosts));
     }
 
     private void setNewLastArticleId(GroupSub gSub, List<PostInfo> newPosts) {
