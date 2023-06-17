@@ -11,19 +11,18 @@ public class HelpCommand implements Command {
 
     public static final String HELP_MESSAGE = String.format("✨Дотупные команды✨\n\n"
 
-                    + "Начать\\закончить работу с ботом:\n"
-                    + "%s - начать работу со мной\n"
-                    + "%s - приостановить работу со мной\n\n"
+                    + "Почати\\закінчити роботу з ботом:\n"
+                    + "%s - почати роботу з ботом\n"
+                    + "%s - призупинити роботу з ботом\n\n"
 
-                    + "Работа с подписками на группы:\n"
-                    + "%s - подписаться на группу статей\n"
-                    + "%s - отписаться от группы статтей\n"
-                    + "%s - получить список групп, на которые подписан\n\n"
+                    + "Робота з підписками на групи:\n"
+                    + "%s - підписатися на групу постів\n"
+                    + "%s - відписатися від групи постів\n"
+                    + "%s - отримати список груп, на які підписаний\n\n"
 
-                    + "%s - получить помощь в работе со мной\n"
-                    + "%s - получить мою статистику использования\n",
+                    + "%s - отримати допомогу в роботі з ботом\n",
             START.getCommandName(), STOP.getCommandName(), ADD_GROUP_SUB.getCommandName(), DELETE_GROUP_SUB.getCommandName(),
-            LIST_GROUP_SUB.getCommandName(), HELP.getCommandName(), STAT.getCommandName());
+            LIST_GROUP_SUB.getCommandName(), HELP.getCommandName());
 
     public HelpCommand(SendBotMessageService sendBotMessageService) {
         this.sendBotMessageService = sendBotMessageService;
@@ -31,6 +30,6 @@ public class HelpCommand implements Command {
 
     @Override
     public void execute(Update update) {
-        sendBotMessageService.sendMessage(update.getMessage().getChatId().toString(), HELP_MESSAGE);
+        sendBotMessageService.sendMessage(update.getMessage().getChatId(), HELP_MESSAGE);
     }
 }

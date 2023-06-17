@@ -37,37 +37,37 @@ public class AddGroupSubCommand implements Command {
     @Override
     public void execute(Update update) {
         if (getMessage(update).equalsIgnoreCase(ADD_GROUP_SUB.getCommandName())) {
-            sendGroupIdList(String.valueOf(getChatId(update)));
+            sendGroupIdList(getChatId(update));
             return;
         }
         String groupId = getMessage(update).split(SPACE)[1];
-        String chatId = String.valueOf(getChatId(update));
+        Long chatId = getChatId(update);
         if (isNumeric(groupId)) {
             GroupDiscussionInfo groupById = javaRushGroupClient.getGroupById(Integer.parseInt(groupId));
             if (isNull(groupById.getId())) {
                 sendGroupNotFound(chatId, groupId);
             }
             GroupSub savedGroupSub = groupSubService.save(chatId, groupById);
-            sendBotMessageService.sendMessage(chatId, "Подписал на группу " + savedGroupSub.getTitle());
+            sendBotMessageService.sendMessage(chatId, "Підписав на групу " + savedGroupSub.getTitle());
         } else {
             sendGroupNotFound(chatId, groupId);
         }
     }
 
-    private void sendGroupNotFound(String chatId, String groupId) {
-        String groupNotFoundMessage = "Нет группы с ID = \"%s\"";
+    private void sendGroupNotFound(Long chatId, String groupId) {
+        String groupNotFoundMessage = "Немає групи з ID = \"%s\"";
         sendBotMessageService.sendMessage(chatId, String.format(groupNotFoundMessage, groupId));
     }
 
-    private void sendGroupIdList(String chatId) {
+    private void sendGroupIdList(Long chatId) {
         String groupIds = javaRushGroupClient.getGroupList(GroupRequestArgs.builder().build()).stream()
                 .map(group -> String.format("%s - %s \n", group.getTitle(), group.getId()))
                 .collect(Collectors.joining());
 
-        String message = "Чтобы подписаться на группу - передай комадну вместе с ID группы. \n" +
-                "Например: /addGroupSub 16. \n\n" +
-                "я подготовил список всех групп - выберай какую хочешь :) \n\n" +
-                "имя группы - ID группы \n\n" +
+        String message = "Щоб підписатися на групу - передай команду з ID групи. \n" +
+                "Наприклад: /addGroupSub 16. \n\n" +
+                "Я підготував список всіх груп :) \n\n" +
+                "ім'я групи - ID групи \n\n" +
                 "%s";
 
         sendBotMessageService.sendMessage(chatId, String.format(message, groupIds));

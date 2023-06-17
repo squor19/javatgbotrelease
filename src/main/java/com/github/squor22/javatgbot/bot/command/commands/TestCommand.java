@@ -16,6 +16,6 @@ public class TestCommand implements Command {
 
     @Override
     public void execute(Update update) {
-        sendBotMessageService.sendMessage(update.getMessage().getChatId().toString(), TEST_MESSAGE);
+        sendBotMessageService.sendMessage(update.getMessage().getChatId(), TEST_MESSAGE);
     }
 }
