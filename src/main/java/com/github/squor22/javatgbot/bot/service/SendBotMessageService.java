@@ -5,5 +5,5 @@ import java.util.List;
 public interface SendBotMessageService {
 
     void sendMessage(String chatId, String message);
-    void sendMessages(String chatId, List<String> posts);
+    void sendMessage(String chatId, List<String> posts);
 }

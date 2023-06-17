@@ -32,9 +32,9 @@ public class SendBotMessageServiceImpl implements SendBotMessageService {
     }
 
     @Override
-    public void sendMessages(String chatId, List<String> posts) {
+    public void sendMessage(String chatId, List<String> posts) {
         for (String message : posts) {
             sendMessage(chatId, message);
-        };
+        }
     }
 }
