@@ -1,13 +1,11 @@
 package com.github.squor22.javatgbot.command;
 
 import com.github.squor22.javatgbot.bot.JavaTgBot;
-import com.github.squor22.javatgbot.bot.command.Command;
-import com.github.squor22.javatgbot.bot.command.CommandName;
-import com.github.squor22.javatgbot.bot.service.SendBotMessageService;
-import com.github.squor22.javatgbot.bot.service.SendBotMessageServiceImpl;
-import com.github.squor22.javatgbot.db.repository.TelegramUserRepository;
-import com.github.squor22.javatgbot.db.service.TelegramUserService;
-import com.github.squor22.javatgbot.db.service.TelegramUserServiceImpl;
+import com.github.squor22.javatgbot.service.SendBotMessageService;
+import com.github.squor22.javatgbot.service.SendBotMessageServiceImpl;
+import com.github.squor22.javatgbot.repository.TelegramUserRepository;
+import com.github.squor22.javatgbot.service.TelegramUserService;
+import com.github.squor22.javatgbot.service.TelegramUserServiceImpl;
 import org.mockito.Mockito;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;

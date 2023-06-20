@@ -1,11 +1,10 @@
 package com.github.squor22.javatgbot.command;
 
-import com.github.squor22.javatgbot.bot.command.Command;
-import com.github.squor22.javatgbot.bot.command.commands.AdminHelpCommand;
+import com.github.squor22.javatgbot.command.commands.AdminHelpCommand;
 import org.junit.jupiter.api.DisplayName;
 
-import static com.github.squor22.javatgbot.bot.command.CommandName.ADMIN_HELP;
-import static com.github.squor22.javatgbot.bot.command.commands.AdminHelpCommand.ADMIN_HELP_MESSAGE;
+import static com.github.squor22.javatgbot.command.CommandName.ADMIN_HELP;
+import static com.github.squor22.javatgbot.command.commands.AdminHelpCommand.ADMIN_HELP_MESSAGE;
 
 @DisplayName("Unit-level testing for AdminHelpCommand")
 public class AdminHelpCommandTest extends AbstractCommandTest {

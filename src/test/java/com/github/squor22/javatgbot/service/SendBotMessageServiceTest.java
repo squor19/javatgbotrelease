@@ -1,8 +1,6 @@
 package com.github.squor22.javatgbot.service;
 
 import com.github.squor22.javatgbot.bot.JavaTgBot;
-import com.github.squor22.javatgbot.bot.service.SendBotMessageService;
-import com.github.squor22.javatgbot.bot.service.SendBotMessageServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
