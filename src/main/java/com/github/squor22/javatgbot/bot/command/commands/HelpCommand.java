@@ -9,7 +9,7 @@ import static com.github.squor22.javatgbot.bot.command.CommandName.*;
 public class HelpCommand implements Command {
     private final SendBotMessageService sendBotMessageService;
 
-    public static final String HELP_MESSAGE = String.format("✨Дотупные команды✨\n\n"
+    public static final String HELP_MESSAGE = String.format("✨Доступні команди✨\n\n"
 
                     + "Почати\\закінчити роботу з ботом:\n"
                     + "%s - почати роботу з ботом\n"

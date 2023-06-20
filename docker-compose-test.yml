@@ -1,12 +1,27 @@
 version: '3.8'
 
 services:
-  javatgb-db:
+  jrtb-bot:
+    depends_on:
+      - jrtb-db
+    build:
+      context: .
+    environment:
+      BOT_NAME: ${BOT_NAME}
+      BOT_TOKEN: ${BOT_TOKEN}
+      BOT_DB_USERNAME: ${BOT_DB_USERNAME}
+      BOT_DB_PASSWORD: ${BOT_DB_PASSWORD}
+    restart: always
+  jrtb-db:
     image: mysql
     restart: always
-    container_name: dev-javatgb-db
-    ports:
-      - "3306:3306"
     environment:
-      MYSQL_DATABASE: "dev_jrtb_db"
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: ${BOT_DB_USERNAME}
+      MYSQL_PASSWORD: ${BOT_DB_PASSWORD}
+      MYSQL_DATABASE: 'jrtb_db'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    command: --character-set-server=utf8 --collation-server=utf8_general_ci

@@ -35,13 +35,13 @@ public class FindNewPostsServiceImpl implements FindNewPostsService {
         groupSubService.findAll().forEach(gSub -> {
             List<PostInfo> newPosts = javaTGBotClient.findNewPosts(gSub.getId(), gSub.getLastPostId());
 
-            setNewLastArticleId(gSub, newPosts);
+            setNewLastPostId(gSub, newPosts);
 
-            notifySubscribersAboutNewArticles(gSub, newPosts);
+            notifySubscribersAboutNewPost(gSub, newPosts);
         });
     }
 
-    private void notifySubscribersAboutNewArticles(GroupSub gSub, List<PostInfo> newPosts) {
+    private void notifySubscribersAboutNewPost(GroupSub gSub, List<PostInfo> newPosts) {
         Collections.reverse(newPosts);
         List<String> messagesWithNewPosts = newPosts.stream()
                 .map(post -> String.format("✨Вийшла нова стаття <b>%s</b> в групі <b>%s</b>.✨\n\n" +
@@ -55,7 +55,7 @@ public class FindNewPostsServiceImpl implements FindNewPostsService {
                 .forEach(it -> sendMessageService.sendMessage(it.getChatId(), messagesWithNewPosts));
     }
 
-    private void setNewLastArticleId(GroupSub gSub, List<PostInfo> newPosts) {
+    private void setNewLastPostId(GroupSub gSub, List<PostInfo> newPosts) {
         newPosts.stream().mapToInt(PostInfo::getId).max()
                 .ifPresent(id -> {
                     gSub.setLastPostId(id);

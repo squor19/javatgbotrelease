@@ -16,14 +16,17 @@ import java.time.ZoneOffset;
 @Component
 public class FindNewPostsJob {
 
+    private final JobConfig jobConfig;
+
     private final FindNewPostsService findNewPostService;
 
     @Autowired
-    public FindNewPostsJob(FindNewPostsService findNewArticleService) {
+    public FindNewPostsJob(FindNewPostsService findNewArticleService, JobConfig jobConfig) {
         this.findNewPostService = findNewArticleService;
+        this.jobConfig = jobConfig;
     }
 
-    @Scheduled(fixedRateString = "${bot.recountNewPostsFixedRate}")
+    @Scheduled(fixedRateString = "#{jobConfig.getRate()}")
     public void findNewPosts() {
         LocalDateTime start = LocalDateTime.now();
 
