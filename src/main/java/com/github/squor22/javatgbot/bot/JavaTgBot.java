@@ -1,5 +1,6 @@
 package com.github.squor22.javatgbot.bot;
 
+import com.github.squor22.javatgbot.JavaTelegramBotApplication;
 import com.github.squor22.javatgbot.bot.command.CommandContainer;
 import com.github.squor22.javatgbot.bot.config.BotConfig;
 import com.github.squor22.javatgbot.bot.service.SendBotMessageServiceImpl;
@@ -7,14 +8,14 @@ import com.github.squor22.javatgbot.client.JavaTGBotClient;
 import com.github.squor22.javatgbot.db.service.GroupSubService;
 import com.github.squor22.javatgbot.db.service.StatisticsService;
 import com.github.squor22.javatgbot.db.service.TelegramUserService;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.User;
 
-import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static com.github.squor22.javatgbot.bot.command.CommandName.NO;
 
@@ -27,14 +28,16 @@ public class JavaTgBot extends TelegramLongPollingBot{
 
     private final CommandContainer commandContainer;
 
-
+    private static final Logger logger = LoggerFactory.getLogger(JavaTelegramBotApplication.class);
 
 
 
     public JavaTgBot(BotConfig config, TelegramUserService telegramUserService, JavaTGBotClient javaTGBotClient, GroupSubService groupSubService, StatisticsService statisticsService) {
         super(config.getBotToken());
+        logger.info("I started my life");
         this.config = config;
         this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this), telegramUserService, javaTGBotClient, groupSubService, config.getAdmins(), statisticsService);
+        logger.info("I started my life");
     }
 
     @Override
@@ -45,6 +48,7 @@ public class JavaTgBot extends TelegramLongPollingBot{
     @Override
     public void onUpdateReceived(Update update) {
         if(update.hasMessage() && update.getMessage().hasText()) {
+            logger.info("Have got a message: _______________________________ :" + update.getMessage());
             Message msg = update.getMessage();
             User user = msg.getFrom();
             String username = user.getUserName();
