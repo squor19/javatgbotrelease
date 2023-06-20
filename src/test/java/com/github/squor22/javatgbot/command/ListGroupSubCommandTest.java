@@ -1,10 +1,10 @@
 package com.github.squor22.javatgbot.command;
 
-import com.github.squor22.javatgbot.bot.command.commands.ListGroupSubCommand;
-import com.github.squor22.javatgbot.bot.service.SendBotMessageService;
-import com.github.squor22.javatgbot.db.entity.GroupSub;
-import com.github.squor22.javatgbot.db.entity.TelegramUser;
-import com.github.squor22.javatgbot.db.service.TelegramUserService;
+import com.github.squor22.javatgbot.command.commands.ListGroupSubCommand;
+import com.github.squor22.javatgbot.service.SendBotMessageService;
+import com.github.squor22.javatgbot.entity.GroupSub;
+import com.github.squor22.javatgbot.entity.TelegramUser;
+import com.github.squor22.javatgbot.service.TelegramUserService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static com.github.squor22.javatgbot.bot.command.CommandName.LIST_GROUP_SUB;
+import static com.github.squor22.javatgbot.command.CommandName.LIST_GROUP_SUB;
 
 
 @DisplayName("Unit-level testing for ListGroupSubCommand")

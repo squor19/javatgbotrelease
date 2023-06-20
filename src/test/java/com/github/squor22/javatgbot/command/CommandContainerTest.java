@@ -1,12 +1,10 @@
 package com.github.squor22.javatgbot.command;
 
-import com.github.squor22.javatgbot.bot.command.Command;
-import com.github.squor22.javatgbot.bot.command.CommandName;
-import com.github.squor22.javatgbot.bot.command.commands.StatCommand;
-import com.github.squor22.javatgbot.bot.service.SendBotMessageService;
-import com.github.squor22.javatgbot.client.dto.GroupStatDTO;
-import com.github.squor22.javatgbot.client.dto.StatisticDTO;
-import com.github.squor22.javatgbot.db.service.StatisticsService;
+import com.github.squor22.javatgbot.command.commands.StatCommand;
+import com.github.squor22.javatgbot.service.SendBotMessageService;
+import com.github.squor22.javatgbot.dto.GroupStatDTO;
+import com.github.squor22.javatgbot.dto.StatisticDTO;
+import com.github.squor22.javatgbot.service.StatisticsService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,7 +12,7 @@ import org.mockito.Mockito;
 
 import java.util.Collections;
 
-import static com.github.squor22.javatgbot.bot.command.commands.StatCommand.STAT_MESSAGE;
+import static com.github.squor22.javatgbot.command.commands.StatCommand.STAT_MESSAGE;
 import static com.github.squor22.javatgbot.command.AbstractCommandTest.prepareUpdate;
 
 @DisplayName("Unit-level testing for CommandContainer")

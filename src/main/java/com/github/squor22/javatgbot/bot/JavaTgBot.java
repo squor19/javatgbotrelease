@@ -1,13 +1,13 @@
 package com.github.squor22.javatgbot.bot;
 
 import com.github.squor22.javatgbot.JavaTelegramBotApplication;
-import com.github.squor22.javatgbot.bot.command.CommandContainer;
-import com.github.squor22.javatgbot.bot.config.BotConfig;
-import com.github.squor22.javatgbot.bot.service.SendBotMessageServiceImpl;
-import com.github.squor22.javatgbot.client.JavaTGBotClient;
-import com.github.squor22.javatgbot.db.service.GroupSubService;
-import com.github.squor22.javatgbot.db.service.StatisticsService;
-import com.github.squor22.javatgbot.db.service.TelegramUserService;
+import com.github.squor22.javatgbot.command.CommandContainer;
+import com.github.squor22.javatgbot.config.BotConfig;
+import com.github.squor22.javatgbot.service.SendBotMessageServiceImpl;
+import com.github.squor22.javatgbot.client.GroupClient;
+import com.github.squor22.javatgbot.service.GroupSubService;
+import com.github.squor22.javatgbot.service.StatisticsService;
+import com.github.squor22.javatgbot.service.TelegramUserService;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.Message;
@@ -17,7 +17,7 @@ import org.telegram.telegrambots.meta.api.objects.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static com.github.squor22.javatgbot.bot.command.CommandName.NO;
+import static com.github.squor22.javatgbot.command.CommandName.NO;
 
 @Component
 public class JavaTgBot extends TelegramLongPollingBot{
@@ -32,7 +32,7 @@ public class JavaTgBot extends TelegramLongPollingBot{
 
 
 
-    public JavaTgBot(BotConfig config, TelegramUserService telegramUserService, JavaTGBotClient javaTGBotClient, GroupSubService groupSubService, StatisticsService statisticsService) {
+    public JavaTgBot(BotConfig config, TelegramUserService telegramUserService, GroupClient javaTGBotClient, GroupSubService groupSubService, StatisticsService statisticsService) {
         super(config.getBotToken());
         logger.info("I started my life");
         this.config = config;
