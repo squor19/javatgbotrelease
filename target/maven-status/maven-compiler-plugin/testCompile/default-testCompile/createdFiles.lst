@@ -1,0 +1,11 @@
+com\github\squor22\javatgbot\repository\GroupSubRepositoryIT.class
+com\github\squor22\javatgbot\command\StartCommandTest.class
+com\github\squor22\javatgbot\command\HelpCommandTest.class
+com\github\squor22\javatgbot\command\NoCommandTest.class
+com\github\squor22\javatgbot\command\CommandContainerTest.class
+com\github\squor22\javatgbot\service\SendBotMessageServiceTest.class
+com\github\squor22\javatgbot\command\AbstractCommandTest.class
+com\github\squor22\javatgbot\command\AdminHelpCommandTest.class
+com\github\squor22\javatgbot\command\UnknownCommandTest.class
+com\github\squor22\javatgbot\command\ListGroupSubCommandTest.class
+com\github\squor22\javatgbot\command\StopCommandTest.class
